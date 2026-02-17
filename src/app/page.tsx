@@ -1,5 +1,6 @@
 "use client";
 
+import { PageTracker } from "@/components/Analytics";
 import LandingNav from "@/components/landing/LandingNav";
 import HeroSection from "@/components/landing/HeroSection";
 import HowItWorks from "@/components/landing/HowItWorks";
@@ -11,6 +12,7 @@ import LandingFooter from "@/components/landing/LandingFooter";
 export default function Home() {
   return (
     <>
+      <PageTracker page="/" />
       <LandingNav />
       <main className="max-w-6xl mx-auto px-6">
         <HeroSection />

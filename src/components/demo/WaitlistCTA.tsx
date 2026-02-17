@@ -14,7 +14,7 @@ interface WaitlistCTAProps {
 export default function WaitlistCTA({
   leverage = LEVERAGE_DEFAULT,
 }: WaitlistCTAProps) {
-  const { joined, join } = useWaitlist();
+  const { joined, submitting, error, join } = useWaitlist();
   const [settled, setSettled] = useState(joined);
   const effectiveAPY = getEffectiveAPY(leverage);
   const controls = useAnimationControls();
@@ -34,14 +34,14 @@ export default function WaitlistCTA({
     if (joined) setSettled(true);
   }, [joined]);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const input = form.querySelector("input") as HTMLInputElement;
     if (input.value) {
+      const email = input.value;
       input.value = "";
-      // Immediately update content state
-      join();
+      await join(email, "demo");
       // Run celebration animation on the border, then settle
       celebrate();
     }
@@ -121,23 +121,30 @@ export default function WaitlistCTA({
               </div>
             </motion.div>
           ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="flex gap-2 w-full md:w-auto"
-            >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                required
-                className="flex-1 md:w-64 px-4 py-3 rounded-full bg-white/[0.08] border border-emerald/30 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald/60 focus:ring-2 focus:ring-emerald/25 transition-all animate-input-glow"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-white text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-100 transition-colors whitespace-nowrap"
+            <div className="w-full md:w-auto">
+              <form
+                onSubmit={handleSubmit}
+                className="flex gap-2 w-full md:w-auto"
               >
-                Join Waitlist
-              </button>
-            </form>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  required
+                  disabled={submitting}
+                  className="flex-1 md:w-64 px-4 py-3 rounded-full bg-white/[0.08] border border-emerald/30 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald/60 focus:ring-2 focus:ring-emerald/25 transition-all animate-input-glow disabled:opacity-60"
+                />
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="px-6 py-3 bg-white text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-100 transition-colors whitespace-nowrap disabled:opacity-60"
+                >
+                  {submitting ? "Joining..." : "Join Waitlist"}
+                </button>
+              </form>
+              {error && (
+                <p className="text-sm text-red-400 mt-2">{error}</p>
+              )}
+            </div>
           )}
         </div>
 

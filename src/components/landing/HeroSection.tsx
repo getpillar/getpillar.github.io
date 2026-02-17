@@ -7,15 +7,15 @@ import { formatPercent } from "@/lib/utils";
 import { useWaitlist } from "@/contexts/WaitlistContext";
 
 export default function HeroSection() {
-  const { joined, join } = useWaitlist();
+  const { joined, submitting, error, join } = useWaitlist();
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const input = form.querySelector("input") as HTMLInputElement;
     if (input.value) {
+      join(input.value, "landing");
       input.value = "";
-      join();
     }
   }
 
@@ -77,18 +77,24 @@ export default function HeroSection() {
                   type="email"
                   placeholder="Enter your email"
                   required
-                  className="flex-1 px-4 py-3 rounded-full border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-emerald/20 transition-all bg-white animate-input-glow"
+                  disabled={submitting}
+                  className="flex-1 px-4 py-3 rounded-full border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-emerald/20 transition-all bg-white animate-input-glow disabled:opacity-60"
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-gray-900 text-white text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors whitespace-nowrap"
+                  disabled={submitting}
+                  className="px-6 py-3 bg-gray-900 text-white text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors whitespace-nowrap disabled:opacity-60"
                 >
-                  Join Waitlist
+                  {submitting ? "Joining..." : "Join Waitlist"}
                 </button>
               </form>
-              <p className="mt-3 text-xs text-gray-400">
-                Early access when we launch. No spam, ever.
-              </p>
+              {error ? (
+                <p className="mt-3 text-xs text-red-500">{error}</p>
+              ) : (
+                <p className="mt-3 text-xs text-gray-400">
+                  Early access when we launch. No spam, ever.
+                </p>
+              )}
             </>
           )}
         </div>

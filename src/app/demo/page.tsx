@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { LEVERAGE_DEFAULT } from "@/data/mockData";
+import { PageTracker, DemoTracker } from "@/components/Analytics";
 import BalanceCard from "@/components/demo/BalanceCard";
 import YieldBoostDial from "@/components/demo/YieldBoostDial";
 import YieldTracker from "@/components/demo/YieldTracker";
@@ -38,6 +39,8 @@ export default function DemoPage() {
       animate="show"
       className="space-y-6"
     >
+      <PageTracker page="/demo" />
+      <DemoTracker />
       <motion.div variants={fadeUp}>
         <BalanceCard leverage={leverage} />
       </motion.div>
