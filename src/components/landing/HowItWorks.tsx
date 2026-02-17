@@ -38,7 +38,7 @@ export default function HowItWorks() {
   return (
     <section className="py-20">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-900">
+        <h2 className="text-3xl font-serif text-navy">
           Simple by design
         </h2>
         <p className="mt-3 text-gray-500">
@@ -56,7 +56,7 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.12, duration: 0.5 }}
-              className="bg-white rounded-2xl border border-gray-200 p-6 relative"
+              className="bg-white rounded-xl border border-border p-6 relative shadow-[0_1px_3px_rgba(12,21,34,0.04)]"
             >
               <span className="text-xs font-bold text-gray-300 font-mono-financial">
                 {step.step}
@@ -64,7 +64,7 @@ export default function HowItWorks() {
               <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mt-3 mb-4">
                 <Icon className="w-5 h-5 text-gray-600" />
               </div>
-              <h3 className="text-base font-semibold text-gray-900">
+              <h3 className="text-base font-semibold text-navy">
                 {step.title}
               </h3>
               <p className="mt-2 text-sm text-gray-500 leading-relaxed">

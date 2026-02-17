@@ -58,8 +58,8 @@ export default function WaitlistCTA({
 
   // Show bright gradient during celebration, normal sweep otherwise
   const gradient = joined && !settled
-    ? "conic-gradient(from 0deg, rgba(5,150,105,0.4) 0%, rgba(16,185,129,1) 25%, rgba(5,150,105,0.6) 50%, rgba(16,185,129,1) 75%, rgba(5,150,105,0.4) 100%)"
-    : "conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(5,150,105,0.15) 68%, rgba(16,185,129,0.5) 75%, rgba(5,150,105,1) 82%, rgba(16,185,129,0.5) 89%, rgba(5,150,105,0.15) 94%, transparent 100%)";
+    ? "conic-gradient(from 0deg, rgba(26,92,58,0.4) 0%, rgba(34,120,70,1) 25%, rgba(26,92,58,0.6) 50%, rgba(34,120,70,1) 75%, rgba(26,92,58,0.4) 100%)"
+    : "conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(26,92,58,0.15) 68%, rgba(34,120,70,0.5) 75%, rgba(26,92,58,1) 82%, rgba(34,120,70,0.5) 89%, rgba(26,92,58,0.15) 94%, transparent 100%)";
 
   return (
     <div
@@ -72,7 +72,7 @@ export default function WaitlistCTA({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4 }}
-          className="absolute inset-0 z-0 rounded-2xl bg-emerald/20"
+          className="absolute inset-0 z-0 rounded-2xl bg-forest/20"
         />
       ) : (
         <motion.div
@@ -83,10 +83,10 @@ export default function WaitlistCTA({
       )}
 
       {/* Card content */}
-      <div className="relative z-10 overflow-hidden rounded-[13px] bg-gray-900 dark:bg-gray-950 px-6 py-8 md:px-10 md:py-10">
+      <div className="relative z-10 overflow-hidden rounded-[13px] bg-gray-900 px-6 py-8 md:px-10 md:py-10">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div className="max-w-md">
-            <p className="text-sm font-medium text-emerald mb-2">
+            <p className="text-sm font-medium text-forest mb-2">
               {joined ? "You\u2019re on the list" : "Get early access"}
             </p>
             <h3 className="text-xl font-bold text-white leading-snug">
@@ -113,9 +113,9 @@ export default function WaitlistCTA({
               transition={{ duration: 0.3 }}
               className="flex flex-col items-center md:items-end gap-2"
             >
-              <div className="inline-flex items-center gap-2 px-5 py-3 bg-emerald/10 border border-emerald/20 rounded-full">
-                <Check className="w-4 h-4 text-emerald" />
-                <span className="text-sm font-semibold text-emerald">
+              <div className="inline-flex items-center gap-2 px-5 py-3 bg-forest/10 border border-forest/20 rounded-lg">
+                <Check className="w-4 h-4 text-forest" />
+                <span className="text-sm font-semibold text-forest">
                   Early access secured
                 </span>
               </div>
@@ -131,12 +131,12 @@ export default function WaitlistCTA({
                   placeholder="Enter your email"
                   required
                   disabled={submitting}
-                  className="flex-1 md:w-64 px-4 py-3 rounded-full bg-white/[0.08] border border-emerald/30 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald/60 focus:ring-2 focus:ring-emerald/25 transition-all animate-input-glow disabled:opacity-60"
+                  className="flex-1 md:w-64 px-4 py-3 rounded-lg bg-white/[0.08] border border-forest/30 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-forest/60 focus:ring-2 focus:ring-forest/25 transition-all animate-input-glow disabled:opacity-60"
                 />
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-6 py-3 bg-white text-gray-900 text-sm font-semibold rounded-full hover:bg-gray-100 transition-colors whitespace-nowrap disabled:opacity-60"
+                  className="px-6 py-3 bg-white text-gray-900 text-sm font-semibold rounded-lg hover:bg-gray-100 transition-colors whitespace-nowrap disabled:opacity-60"
                 >
                   {submitting ? "Joining..." : "Join Waitlist"}
                 </button>
@@ -149,7 +149,7 @@ export default function WaitlistCTA({
         </div>
 
         {/* Subtle gradient accent */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-forest/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       </div>
     </div>
   );

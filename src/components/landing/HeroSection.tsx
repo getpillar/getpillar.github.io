@@ -32,15 +32,15 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-light rounded-full mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-forest-light rounded-md mb-8"
         >
-          <div className="w-2 h-2 rounded-full bg-emerald animate-pulse-dot" />
-          <span className="text-sm font-semibold text-emerald font-mono-financial">
+          <div className="w-2 h-2 rounded-full bg-forest animate-pulse-dot" />
+          <span className="text-sm font-semibold text-forest font-mono-financial">
             Earning {formatPercent(CURRENT_APY)} APY with Yield Boost
           </span>
         </motion.div>
 
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 leading-[1.1]">
+        <h1 className="text-5xl md:text-6xl font-serif tracking-tight text-navy leading-[1.1]">
           Your cash deserves
           <br />
           better than a bank.
@@ -59,9 +59,9 @@ export default function HeroSection() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
             >
-              <div className="inline-flex items-center gap-2 px-5 py-3 bg-emerald-light rounded-full">
-                <Check className="w-4 h-4 text-emerald" />
-                <span className="text-sm font-semibold text-emerald">
+              <div className="inline-flex items-center gap-2 px-5 py-3 bg-forest-light rounded-md">
+                <Check className="w-4 h-4 text-forest" />
+                <span className="text-sm font-semibold text-forest">
                   Early access secured
                 </span>
               </div>
@@ -78,12 +78,12 @@ export default function HeroSection() {
                   placeholder="Enter your email"
                   required
                   disabled={submitting}
-                  className="flex-1 px-4 py-3 rounded-full border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-emerald/20 transition-all bg-white animate-input-glow disabled:opacity-60"
+                  className="flex-1 px-4 py-3 rounded-lg border border-border text-sm text-navy placeholder:text-gray-400 focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-forest/20 transition-all bg-white animate-input-glow disabled:opacity-60"
                 />
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-6 py-3 bg-gray-900 text-white text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors whitespace-nowrap disabled:opacity-60"
+                  className="px-6 py-3 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy-light transition-colors whitespace-nowrap disabled:opacity-60"
                 >
                   {submitting ? "Joining..." : "Join Waitlist"}
                 </button>
@@ -103,7 +103,7 @@ export default function HeroSection() {
           or{" "}
           <a
             href="/demo"
-            className="text-gray-900 font-medium underline underline-offset-4 hover:text-emerald transition-colors"
+            className="text-navy font-medium underline underline-offset-4 hover:text-forest transition-colors"
           >
             try the live demo with $50K
           </a>

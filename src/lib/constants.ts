@@ -1,17 +1,21 @@
 // ─── Design Tokens ───────────────────────────────────────────────────────────
 
 export const colors = {
-  background: "#F9F9FB",
+  navy: "#0C1522",
+  navyLight: "#1A2332",
+  forest: "#1A5C3A",
+  forestLight: "#E8F5EE",
+  gold: "#B8944F",
+  goldLight: "#F9F3E8",
+  background: "#FAF9F7",
   card: "#FFFFFF",
-  emerald: "#059669",
-  emeraldLight: "#ECFDF5",
   text: {
-    primary: "#111827",
-    secondary: "#6B7280",
-    tertiary: "#9CA3AF",
+    primary: "#0C1522",
+    secondary: "#5A6472",
+    tertiary: "#8B919A",
   },
-  border: "#E5E7EB",
-  borderLight: "#F3F4F6",
+  border: "#E8E5E0",
+  borderLight: "#F3F1ED",
   red: "#DC2626",
   redLight: "#FEF2F2",
 } as const;

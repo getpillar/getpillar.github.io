@@ -19,7 +19,6 @@ import {
 } from "@/data/mockData";
 import { formatCurrency, formatPercent } from "@/lib/utils";
 import { Card, CardTitle } from "@/components/ui/Card";
-import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 
 const TIME_RANGES = ["1W", "1M", "3M", "1Y", "All"] as const;
@@ -52,38 +51,29 @@ function filterByRange(
 function CustomTooltip({
   active,
   payload,
-  isDark,
 }: {
   active?: boolean;
   payload?: Array<{
     value: number;
     payload: { date: string; balance: number; event?: string };
   }>;
-  isDark?: boolean;
 }) {
   if (!active || !payload?.length) return null;
   const data = payload[0].payload;
   const balance = payload[0].value;
   const yieldEarned = balance - INITIAL_DEPOSIT;
   return (
-    <div
-      className={cn(
-        "rounded-lg shadow-lg border px-4 py-3",
-        isDark
-          ? "bg-gray-800 border-gray-700"
-          : "bg-white border-gray-200"
-      )}
-    >
+    <div className="rounded-lg shadow-lg border px-4 py-3 bg-white border-border">
       {data.event && (
-        <p className="text-xs font-semibold text-emerald mb-1">
+        <p className="text-xs font-semibold text-forest mb-1">
           {data.event}
         </p>
       )}
-      <p className="text-xs text-gray-500 dark:text-gray-400">{data.date}</p>
-      <p className="text-sm font-bold text-gray-900 dark:text-gray-50 font-mono-financial">
+      <p className="text-xs text-gray-500">{data.date}</p>
+      <p className="text-sm font-bold text-navy font-mono-financial">
         {formatCurrency(balance)}
       </p>
-      <p className="text-xs font-medium text-emerald font-mono-financial mt-0.5">
+      <p className="text-xs font-medium text-forest font-mono-financial mt-0.5">
         +{formatCurrency(yieldEarned)} earned
       </p>
     </div>
@@ -111,7 +101,7 @@ function EventDot(props: Record<string, unknown>) {
   return (
     <g key={`dot-${index}`}>
       {isToday && (
-        <circle cx={cx} cy={cy} r={8} fill="#059669" opacity={0.15}>
+        <circle cx={cx} cy={cy} r={8} fill="#1A5C3A" opacity={0.15}>
           <animate
             attributeName="r"
             values="6;12;6"
@@ -130,8 +120,8 @@ function EventDot(props: Record<string, unknown>) {
         cx={cx}
         cy={cy}
         r={3.5}
-        fill={isToday ? "#059669" : "#FFFFFF"}
-        stroke="#059669"
+        fill={isToday ? "#1A5C3A" : "#FFFFFF"}
+        stroke="#1A5C3A"
         strokeWidth={2}
       />
     </g>
@@ -146,7 +136,6 @@ export default function YieldTracker({
   leverage = LEVERAGE_DEFAULT,
 }: YieldTrackerProps) {
   const [range, setRange] = useState<TimeRange>("All");
-  const { isDark } = useTheme();
   const fullHistory = useMemo(
     () => generateBalanceHistory(leverage),
     [leverage]
@@ -169,8 +158,8 @@ export default function YieldTracker({
   const [topOpacity, bottomOpacity] = getGradientOpacity(leverage);
   const strokeWidth = 1.5 + ((leverage - 1) / 2) * 1;
 
-  const axisTickColor = isDark ? "#6B7280" : "#9CA3AF";
-  const refLineColor = isDark ? "#374151" : "#E5E7EB";
+  const axisTickColor = "#8B919A";
+  const refLineColor = "#E8E5E0";
 
   return (
     <Card className="flex flex-col">
@@ -181,7 +170,7 @@ export default function YieldTracker({
             <CardTitle>Yield Performance</CardTitle>
           </div>
           <p className="text-sm text-gray-400 mt-0.5">
-            <span className="font-semibold text-emerald font-mono-financial">
+            <span className="font-semibold text-forest font-mono-financial">
               +{formatCurrency(periodYield)}
             </span>{" "}
             earned at {formatPercent(effectiveAPY)} APY
@@ -195,8 +184,8 @@ export default function YieldTracker({
               className={cn(
                 "px-2.5 py-1 rounded-lg text-xs font-medium transition-colors",
                 r === range
-                  ? "bg-gray-900 text-white dark:bg-gray-50 dark:text-gray-900"
-                  : "text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:hover:text-gray-50 dark:hover:bg-gray-800"
+                  ? "bg-navy text-white"
+                  : "text-gray-500 hover:text-navy hover:bg-gray-100"
               )}
             >
               {r}
@@ -218,12 +207,12 @@ export default function YieldTracker({
               >
                 <stop
                   offset="0%"
-                  stopColor="#059669"
+                  stopColor="#1A5C3A"
                   stopOpacity={topOpacity}
                 />
                 <stop
                   offset="100%"
-                  stopColor="#059669"
+                  stopColor="#1A5C3A"
                   stopOpacity={bottomOpacity}
                 />
               </linearGradient>
@@ -250,7 +239,7 @@ export default function YieldTracker({
               domain={[minBalance - padding, maxBalance + padding]}
               width={50}
             />
-            <Tooltip content={<CustomTooltip isDark={isDark} />} />
+            <Tooltip content={<CustomTooltip />} />
             <ReferenceLine
               y={INITIAL_DEPOSIT}
               stroke={refLineColor}
@@ -259,14 +248,14 @@ export default function YieldTracker({
             <Area
               type="monotone"
               dataKey="balance"
-              stroke="#059669"
+              stroke="#1A5C3A"
               strokeWidth={strokeWidth}
               fill={`url(#yieldGrad-${leverage})`}
               dot={<EventDot />}
               activeDot={{
                 r: 5,
-                stroke: "#059669",
-                fill: isDark ? "#111827" : "#fff",
+                stroke: "#1A5C3A",
+                fill: "#fff",
                 strokeWidth: 2,
               }}
               isAnimationActive={true}

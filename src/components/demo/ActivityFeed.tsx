@@ -21,32 +21,32 @@ const COLLAPSED_COUNT = 5;
 const typeConfig = {
   deposit: {
     icon: ArrowDownLeft,
-    color: "text-gray-900 dark:text-gray-50",
-    bg: "bg-gray-100 dark:bg-gray-800",
+    color: "text-navy",
+    bg: "bg-gray-100",
     sign: "+",
   },
   yield_credit: {
     icon: TrendingUp,
-    color: "text-emerald",
-    bg: "bg-emerald-light dark:bg-emerald/10",
+    color: "text-forest",
+    bg: "bg-forest-light",
     sign: "+",
   },
   auto_invest: {
     icon: ArrowUpRight,
-    color: "text-gray-500 dark:text-gray-400",
-    bg: "bg-gray-100 dark:bg-gray-800",
+    color: "text-gray-500",
+    bg: "bg-gray-100",
     sign: "-",
   },
   rebalance: {
     icon: RefreshCw,
-    color: "text-gray-500 dark:text-gray-400",
-    bg: "bg-gray-100 dark:bg-gray-800",
+    color: "text-gray-500",
+    bg: "bg-gray-100",
     sign: "",
   },
   leverage_adjust: {
     icon: Gauge,
-    color: "text-emerald",
-    bg: "bg-emerald-light dark:bg-emerald/10",
+    color: "text-forest",
+    bg: "bg-forest-light",
     sign: "",
   },
 };
@@ -94,7 +94,7 @@ export default function ActivityFeed({
                 <div
                   className={cn(
                     "flex items-center gap-3 py-2.5",
-                    !isLast && "border-b border-gray-50 dark:border-gray-800"
+                    !isLast && "border-b border-border-light"
                   )}
                 >
                   <div
@@ -106,13 +106,13 @@ export default function ActivityFeed({
                     <Icon className={cn("w-3.5 h-3.5", config.color)} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 dark:text-gray-50 truncate">
+                    <p className="text-sm font-medium text-navy truncate">
                       {tx.description}
                     </p>
                     <p className="text-xs text-gray-400">
                       {formatDate(tx.date)}
                       {tx.details && (
-                        <span className="text-gray-300 dark:text-gray-600">
+                        <span className="text-gray-300">
                           {" "}
                           &middot; {tx.details}
                         </span>
@@ -131,7 +131,7 @@ export default function ActivityFeed({
                     </span>
                   )}
                   {tx.amount === 0 && (
-                    <span className="text-xs text-gray-300 dark:text-gray-600">&mdash;</span>
+                    <span className="text-xs text-gray-300">&mdash;</span>
                   )}
                 </div>
               </motion.div>
@@ -143,7 +143,7 @@ export default function ActivityFeed({
       {remaining > 0 && (
         <button
           onClick={() => setExpanded(!expanded)}
-          className="mt-2 w-full flex items-center justify-center gap-1.5 py-2.5 text-xs font-medium text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors border-t border-gray-50 dark:border-gray-800"
+          className="mt-2 w-full flex items-center justify-center gap-1.5 py-2.5 text-xs font-medium text-gray-400 hover:text-gray-600 transition-colors border-t border-border-light"
         >
           {expanded ? "Show less" : `Show ${remaining} more`}
           <ChevronDown

@@ -1,26 +1,31 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme inline {
-  --color-background: #F9F9FB;
-  --color-foreground: #111827;
+  --color-navy: #0C1522;
+  --color-navy-light: #1A2332;
+  --color-forest: #1A5C3A;
+  --color-forest-light: #E8F5EE;
+  --color-gold: #B8944F;
+  --color-gold-light: #F9F3E8;
+  --color-background: #FAF9F7;
+  --color-foreground: #0C1522;
   --color-card: #FFFFFF;
-  --color-emerald: #059669;
-  --color-emerald-light: #ECFDF5;
-  --color-border: #E5E7EB;
-  --color-border-light: #F3F4F6;
-  --color-gray-50: #F9FAFB;
-  --color-gray-100: #F3F4F6;
-  --color-gray-200: #E5E7EB;
-  --color-gray-300: #D1D5DB;
-  --color-gray-400: #9CA3AF;
-  --color-gray-500: #6B7280;
-  --color-gray-600: #4B5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1F2937;
-  --color-gray-900: #111827;
-  --color-gray-950: #030712;
+  --color-border: #E8E5E0;
+  --color-border-light: #F3F1ED;
+  --color-text-primary: #0C1522;
+  --color-text-secondary: #5A6472;
+  --color-text-tertiary: #8B919A;
+  --color-gray-50: #FAF9F7;
+  --color-gray-100: #F3F1ED;
+  --color-gray-200: #E8E5E0;
+  --color-gray-300: #D4D0CA;
+  --color-gray-400: #8B919A;
+  --color-gray-500: #5A6472;
+  --color-gray-600: #455060;
+  --color-gray-700: #2E3A48;
+  --color-gray-800: #1A2332;
+  --color-gray-900: #0C1522;
+  --color-gray-950: #060B11;
   --color-amber-50: #FFFBEB;
   --color-amber-600: #D97706;
   --color-red-500: #DC2626;
@@ -35,20 +40,17 @@
   --color-violet-600: #7C3AED;
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #D1D5DB transparent;
-}
-
-.dark * {
-  scrollbar-color: #374151 transparent;
+  scrollbar-color: #D4D0CA transparent;
 }
 
 body {
-  background: #F9F9FB;
-  color: #111827;
+  background: #FAF9F7;
+  color: #0C1522;
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
@@ -81,11 +83,11 @@ button, a, [role="button"] {
 
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  50% { opacity: 0.4; }
 }
 
 .animate-pulse-dot {
-  animation: pulse-dot 2s ease-in-out infinite;
+  animation: pulse-dot 2.5s ease-in-out infinite;
 }
 
 @keyframes ticker {
@@ -98,10 +100,9 @@ button, a, [role="button"] {
   animation: ticker 1s ease-in-out infinite;
 }
 
-
 @keyframes input-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
-  50% { box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.08); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(26, 92, 58, 0); }
+  50% { box-shadow: 0 0 0 4px rgba(26, 92, 58, 0.08); }
 }
 
 .animate-input-glow {

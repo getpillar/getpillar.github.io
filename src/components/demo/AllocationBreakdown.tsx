@@ -14,15 +14,14 @@ import {
 import { formatPercent, formatCurrency } from "@/lib/utils";
 import { Card, CardTitle } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 
-const COLORS = ["#059669", "#047857", "#6B7280", "#9CA3AF"];
+const COLORS = ["#1A5C3A", "#155C35", "#6B7280", "#9CA3AF"];
 
 const BOOST_COLORS: Record<number, string> = {
   1: "text-gray-500",
   1.5: "text-blue-600",
-  2: "text-emerald",
+  2: "text-forest",
   2.5: "text-amber-600",
   3: "text-red-500",
 };
@@ -40,7 +39,6 @@ export default function AllocationBreakdown({
   leverage = LEVERAGE_DEFAULT,
 }: AllocationBreakdownProps) {
   const [expanded, setExpanded] = useState<string | null>(null);
-  const { isDark } = useTheme();
   const balance = getCurrentBalance(leverage);
   const effectiveAPY = getEffectiveAPY(leverage);
   const hasBoost = leverage > 1;
@@ -49,7 +47,7 @@ export default function AllocationBreakdown({
     ? etfHoldings.findIndex((etf) => etf.ticker === expanded)
     : -1;
 
-  const pieStroke = isDark ? "#111827" : "#FFFFFF";
+  const pieStroke = "#FFFFFF";
 
   function handlePieClick(_: unknown, index: number) {
     const ticker = etfHoldings[index].ticker;
@@ -62,7 +60,7 @@ export default function AllocationBreakdown({
         <PieChartIcon className="w-4 h-4 text-gray-400" />
         <CardTitle>How Your Money Works</CardTitle>
       </div>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-sm text-gray-500 mb-6">
         Allocated across four AAA-rated ETFs for yield and liquidity.
       </p>
 
@@ -126,14 +124,14 @@ export default function AllocationBreakdown({
           {/* Center label */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="text-center">
-              <p className="text-2xl font-bold font-mono-financial text-emerald">
+              <p className="text-2xl font-bold font-mono-financial text-forest">
                 {formatPercent(effectiveAPY)}
               </p>
               <p className="text-[10px] font-medium text-gray-400">
                 {hasBoost ? (
                   <>
                     with{" "}
-                    <span className={BOOST_COLORS[leverage] || "text-emerald"}>
+                    <span className={BOOST_COLORS[leverage] || "text-forest"}>
                       {leverage}x Boost
                     </span>
                   </>
@@ -156,22 +154,22 @@ export default function AllocationBreakdown({
                 className={cn(
                   "border rounded-xl overflow-hidden transition-colors",
                   isActive
-                    ? "border-gray-300 dark:border-gray-600"
-                    : "border-gray-100 dark:border-gray-800"
+                    ? "border-border"
+                    : "border-border-light"
                 )}
               >
                 <button
                   onClick={() =>
                     setExpanded(isActive ? null : etf.ticker)
                   }
-                  className="w-full flex items-center justify-between p-3 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+                  className="w-full flex items-center justify-between p-3 hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex items-center gap-2.5">
                     <div
                       className="w-2.5 h-2.5 rounded-full shrink-0"
                       style={{ backgroundColor: COLORS[i] }}
                     />
-                    <span className="font-semibold text-sm text-gray-900 dark:text-gray-50 font-mono-financial">
+                    <span className="font-semibold text-sm text-navy font-mono-financial">
                       {etf.ticker}
                     </span>
                     <span className="text-xs text-gray-400 hidden sm:inline">
@@ -179,10 +177,10 @@ export default function AllocationBreakdown({
                     </span>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <span className="text-xs font-medium text-emerald font-mono-financial">
+                    <span className="text-xs font-medium text-forest font-mono-financial">
                       {formatPercent(etf.yield)}
                     </span>
-                    <span className="text-xs font-medium text-gray-900 dark:text-gray-50 font-mono-financial w-8 text-right">
+                    <span className="text-xs font-medium text-navy font-mono-financial w-8 text-right">
                       {etf.allocation}%
                     </span>
                     <ChevronDown
@@ -203,7 +201,7 @@ export default function AllocationBreakdown({
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-3 pb-3 space-y-2.5 border-t border-gray-100 dark:border-gray-800 pt-2.5">
+                      <div className="px-3 pb-3 space-y-2.5 border-t border-border-light pt-2.5">
                         <div className="flex flex-wrap gap-1.5">
                           <Badge>{etf.rating}</Badge>
                           <Badge variant="outline">AUM: {etf.aum}</Badge>
@@ -214,11 +212,11 @@ export default function AllocationBreakdown({
                             )}
                           </Badge>
                         </div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                        <p className="text-xs text-gray-600 leading-relaxed">
                           {etf.description}
                         </p>
-                        <div className="bg-emerald-light dark:bg-emerald/10 rounded-lg p-2.5">
-                          <p className="text-[11px] text-emerald font-medium leading-relaxed">
+                        <div className="bg-forest-light rounded-lg p-2.5">
+                          <p className="text-[11px] text-forest font-medium leading-relaxed">
                             {etf.riskNote}
                           </p>
                         </div>

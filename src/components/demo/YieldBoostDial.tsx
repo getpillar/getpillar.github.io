@@ -24,7 +24,7 @@ const STEP_LABELS: Record<number, string> = {
 const RISK_LABELS: Record<number, { label: string; color: string }> = {
   1: { label: "Conservative", color: "text-gray-500" },
   1.5: { label: "Moderate", color: "text-blue-600" },
-  2: { label: "Enhanced", color: "text-emerald" },
+  2: { label: "Enhanced", color: "text-forest" },
   2.5: { label: "Aggressive", color: "text-amber-600" },
   3: { label: "Max Boost", color: "text-red-500" },
 };
@@ -59,7 +59,7 @@ export default function YieldBoostDial({
           initial={{ scale: 1.05, opacity: 0.7 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3, ease: "easeOut" as const }}
-          className="text-4xl font-bold text-emerald font-mono-financial"
+          className="text-4xl font-bold text-forest font-mono-financial"
         >
           {formatPercent(effectiveAPY)}
         </motion.p>
@@ -72,7 +72,7 @@ export default function YieldBoostDial({
       </div>
 
       {/* Segmented control */}
-      <div className="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1 mb-6">
+      <div className="flex bg-gray-100 rounded-lg p-1 mb-6">
         {STEPS.map((step) => (
           <button
             key={step}
@@ -80,8 +80,8 @@ export default function YieldBoostDial({
             className={cn(
               "flex-1 py-2.5 text-xs font-semibold rounded-md transition-all font-mono-financial",
               step === leverage
-                ? "bg-white text-gray-900 shadow-sm dark:bg-gray-700 dark:text-gray-50"
-                : "text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                ? "bg-white text-navy shadow-sm"
+                : "text-gray-400 hover:text-gray-600"
             )}
           >
             {STEP_LABELS[step]}
@@ -101,7 +101,7 @@ export default function YieldBoostDial({
           >
             <button
               onClick={() => setShowDeleverage(!showDeleverage)}
-              className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-emerald-light dark:bg-emerald/10 text-emerald text-xs font-medium transition-colors hover:bg-emerald-light/80 dark:hover:bg-emerald/15 mb-6"
+              className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-forest-light text-forest text-xs font-medium transition-colors hover:bg-forest-light/80 mb-6"
             >
               <ShieldCheck className="w-3.5 h-3.5" />
               Auto-Deleverage Active
@@ -115,7 +115,7 @@ export default function YieldBoostDial({
                   transition={{ duration: 0.2 }}
                   className="overflow-hidden -mt-4 mb-6"
                 >
-                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 space-y-2">
+                  <div className="bg-gray-50 rounded-lg p-3 space-y-2">
                     <p className="text-[10px] font-medium text-gray-400 uppercase tracking-wide">
                       Triggers
                     </p>
@@ -124,7 +124,7 @@ export default function YieldBoostDial({
                         <span className="text-gray-400 shrink-0">
                           {t.trigger}
                         </span>
-                        <span className="ml-auto text-emerald font-medium whitespace-nowrap">
+                        <span className="ml-auto text-forest font-medium whitespace-nowrap">
                           &rarr; {t.action}
                         </span>
                       </div>
@@ -138,10 +138,10 @@ export default function YieldBoostDial({
       </AnimatePresence>
 
       {/* Yield math — condensed */}
-      <div className="mt-auto pt-4 border-t border-gray-100 dark:border-gray-800 space-y-2 text-sm">
+      <div className="mt-auto pt-4 border-t border-border-light space-y-2 text-sm">
         <div className="flex justify-between">
           <span className="text-gray-400">Base portfolio yield</span>
-          <span className="font-mono-financial text-gray-900 dark:text-gray-50">
+          <span className="font-mono-financial text-navy">
             {formatPercent(BASE_APY)}
           </span>
         </div>
@@ -151,17 +151,17 @@ export default function YieldBoostDial({
               ? `Boost (${leverageTurns} ${leverageTurns === 1 ? "turn" : "turns"} × ${formatPercent(NET_SPREAD)})`
               : "No boost applied"}
           </span>
-          <span className="font-mono-financial text-emerald">
+          <span className="font-mono-financial text-forest">
             +{formatPercent(boostAmount)}
           </span>
         </div>
-        <div className="flex justify-between pt-2 border-t border-gray-100 dark:border-gray-800 font-medium">
-          <span className="text-gray-900 dark:text-gray-50">Effective yield</span>
-          <span className="font-mono-financial text-emerald">
+        <div className="flex justify-between pt-2 border-t border-border-light font-medium">
+          <span className="text-navy">Effective yield</span>
+          <span className="font-mono-financial text-forest">
             {formatPercent(effectiveAPY)}
           </span>
         </div>
-        <p className="text-[10px] text-gray-300 dark:text-gray-600 leading-snug pt-2">
+        <p className="text-[10px] text-gray-300 leading-snug pt-2">
           * Based on current 30-day SEC yields and repo funding rates. Rates
           are variable and subject to change. Leverage amplifies both gains
           and losses.

@@ -7,7 +7,7 @@ export default function LandingFooter() {
   return (
     <section className="py-20 text-center">
       <div className="max-w-lg mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900">
+        <h2 className="text-3xl font-serif text-navy">
           See it for yourself
         </h2>
         <p className="mt-3 text-gray-500">
@@ -17,14 +17,14 @@ export default function LandingFooter() {
         </p>
         <Link
           href="/demo"
-          className="mt-8 inline-flex items-center gap-2 px-8 py-3.5 bg-gray-900 text-white text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors"
+          className="mt-8 inline-flex items-center gap-2 px-8 py-3.5 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy-light transition-colors"
         >
           Try the Live Demo
           <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
 
-      <div className="mt-20 border-t border-gray-200 pt-8">
+      <div className="mt-20 border-t border-border pt-8">
         <p className="text-xs text-gray-400 tracking-wide">
           Pillar &middot; Your cash deserves better than a bank.
         </p>

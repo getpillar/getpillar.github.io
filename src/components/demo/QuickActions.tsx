@@ -31,7 +31,7 @@ export default function QuickActions() {
               onClick={() => handleClick(action.label)}
               className={cn(
                 "flex flex-col items-center gap-2 py-4 px-3 rounded-xl",
-                "border border-gray-100 hover:border-gray-300 hover:bg-gray-50",
+                "border border-border-light hover:border-border hover:bg-gray-50",
                 "transition-all text-center"
               )}
             >
@@ -39,7 +39,7 @@ export default function QuickActions() {
                 <Icon className="w-5 h-5 text-gray-600" />
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-900">
+                <p className="text-sm font-medium text-navy">
                   {action.label}
                 </p>
                 <p className="text-xs text-gray-400">{action.description}</p>
@@ -56,7 +56,7 @@ export default function QuickActions() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
-            className="absolute -bottom-12 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap shadow-lg z-10"
+            className="absolute -bottom-12 left-1/2 -translate-x-1/2 bg-navy text-white text-xs font-medium px-4 py-2 rounded-full whitespace-nowrap shadow-lg z-10"
           >
             {toast} is disabled in demo mode
           </motion.div>

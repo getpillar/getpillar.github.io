@@ -15,7 +15,6 @@ interface Competitor {
   highlight: boolean;
   subtitle: string | null;
   initial: string;
-  // High-res logo sources (apple-touch-icon preferred for consistent 180x180 squares)
   logoUrl: string | null;
 }
 
@@ -110,12 +109,12 @@ export default function YieldComparison() {
   return (
     <section className="py-20">
       <div className="text-center mb-4">
-        <h2 className="text-3xl font-bold text-gray-900">
+        <h2 className="text-3xl font-serif text-navy">
           Stop leaving money on the table
         </h2>
         <p className="mt-3 text-gray-500 max-w-lg mx-auto">
           On a $50K balance, Pillar earns you{" "}
-          <span className="font-semibold text-emerald font-mono-financial">
+          <span className="font-semibold text-forest font-mono-financial">
             ${annualExtra.toLocaleString()}/year
           </span>{" "}
           more than the national average. Base yield{" "}
@@ -147,7 +146,7 @@ export default function YieldComparison() {
                 <span
                   className={
                     comp.highlight
-                      ? "text-sm font-bold text-gray-900"
+                      ? "text-sm font-bold text-navy"
                       : "text-sm text-gray-400"
                   }
                 >
@@ -156,7 +155,7 @@ export default function YieldComparison() {
                 {comp.subtitle && (
                   <p
                     className={`text-[10px] font-medium ${
-                      comp.highlight ? "text-emerald" : "text-gray-300"
+                      comp.highlight ? "text-forest" : "text-gray-300"
                     }`}
                   >
                     {comp.subtitle}
@@ -176,7 +175,7 @@ export default function YieldComparison() {
                     ease: "easeOut" as const,
                   }}
                   className={`h-full rounded-full ${
-                    comp.highlight ? "bg-emerald" : "bg-gray-200"
+                    comp.highlight ? "bg-forest" : "bg-gray-200"
                   }`}
                 />
               </div>
@@ -184,7 +183,7 @@ export default function YieldComparison() {
               {/* Fixed APY column */}
               <span
                 className={`w-14 text-right text-xs font-bold font-mono-financial shrink-0 ${
-                  comp.highlight ? "text-emerald" : "text-gray-400"
+                  comp.highlight ? "text-forest" : "text-gray-400"
                 }`}
               >
                 {formatPercent(comp.apy)}
@@ -194,7 +193,7 @@ export default function YieldComparison() {
               <span
                 className={`hidden sm:block w-20 text-right text-[11px] font-mono-financial shrink-0 ${
                   comp.highlight
-                    ? "font-semibold text-gray-900"
+                    ? "font-semibold text-navy"
                     : "text-gray-300"
                 }`}
               >
