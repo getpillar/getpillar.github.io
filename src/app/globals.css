@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-background: #F9F9FB;
+  --color-foreground: #111827;
+  --color-card: #FFFFFF;
+  --color-emerald: #059669;
+  --color-emerald-light: #ECFDF5;
+  --color-border: #E5E7EB;
+  --color-border-light: #F3F4F6;
+  --color-gray-50: #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #E5E7EB;
+  --color-gray-300: #D1D5DB;
+  --color-gray-400: #9CA3AF;
+  --color-gray-500: #6B7280;
+  --color-gray-600: #4B5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1F2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+  --color-amber-50: #FFFBEB;
+  --color-amber-600: #D97706;
+  --color-red-500: #DC2626;
+  --color-red-50: #FEF2F2;
+  --color-blue-50: #EFF6FF;
+  --color-blue-100: #DBEAFE;
+  --color-blue-600: #2563EB;
+  --color-blue-800: #1E40AF;
+  --color-purple-100: #F3E8FF;
+  --color-purple-600: #9333EA;
+  --color-violet-100: #EDE9FE;
+  --color-violet-600: #7C3AED;
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #D1D5DB transparent;
+}
+
+.dark * {
+  scrollbar-color: #374151 transparent;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #F9F9FB;
+  color: #111827;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+button, a, [role="button"] {
+  cursor: pointer;
+}
+
+.recharts-sector,
+.recharts-sector:focus,
+.recharts-sector:active,
+.recharts-surface,
+.recharts-surface:focus,
+.recharts-surface:active,
+.recharts-pie-sector,
+.recharts-pie-sector path,
+.recharts-pie-sector path:focus,
+.recharts-pie-sector path:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.recharts-pie-sector {
+  cursor: pointer;
+}
+
+.font-mono-financial {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes ticker {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.animate-ticker {
+  animation: ticker 1s ease-in-out infinite;
+}
+
+
+@keyframes input-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
+  50% { box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.08); }
+}
+
+.animate-input-glow {
+  animation: input-glow 3s ease-in-out infinite;
+}
+
+.animate-input-glow:focus {
+  animation: none;
 }
