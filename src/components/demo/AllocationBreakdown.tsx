@@ -16,7 +16,7 @@ import { Card, CardTitle } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { cn } from "@/lib/utils";
 
-const COLORS = ["#1A5C3A", "#155C35", "#6B7280", "#9CA3AF"];
+const COLORS = ["#22704A", "#4A9B6E", "#8B919A", "#BFC3C8"];
 
 const BOOST_COLORS: Record<number, string> = {
   1: "text-gray-500",

@@ -56,13 +56,13 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.12, duration: 0.5 }}
-              className="bg-white rounded-xl border border-border p-6 relative shadow-[0_1px_3px_rgba(12,21,34,0.04)]"
+              className="bg-white rounded-xl border border-border p-6 relative shadow-[0_1px_4px_rgba(12,21,34,0.08)]"
             >
-              <span className="text-xs font-bold text-gray-300 font-mono-financial">
+              <span className="text-xs font-bold text-forest/40 font-mono-financial">
                 {step.step}
               </span>
-              <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mt-3 mb-4">
-                <Icon className="w-5 h-5 text-gray-600" />
+              <div className="w-10 h-10 rounded-full bg-forest-light flex items-center justify-center mt-3 mb-4">
+                <Icon className="w-5 h-5 text-forest" />
               </div>
               <h3 className="text-base font-semibold text-navy">
                 {step.title}

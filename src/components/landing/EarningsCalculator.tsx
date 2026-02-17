@@ -84,7 +84,7 @@ export default function EarningsCalculator() {
         </div>
 
         {/* Earnings card */}
-        <div ref={cardRef} className="bg-white rounded-xl border border-border p-8 shadow-[0_1px_3px_rgba(12,21,34,0.04)]">
+        <div ref={cardRef} className="bg-white rounded-xl border border-border p-8 shadow-[0_1px_4px_rgba(12,21,34,0.08)]">
           <p className="text-sm text-gray-400 text-center mb-6">
             On a{" "}
             <span className="font-semibold text-navy font-mono-financial">

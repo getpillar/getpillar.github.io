@@ -3,8 +3,8 @@
 export const colors = {
   navy: "#0C1522",
   navyLight: "#1A2332",
-  forest: "#1A5C3A",
-  forestLight: "#E8F5EE",
+  forest: "#22704A",
+  forestLight: "#EDF3EF",
   gold: "#B8944F",
   goldLight: "#F9F3E8",
   background: "#FAF9F7",

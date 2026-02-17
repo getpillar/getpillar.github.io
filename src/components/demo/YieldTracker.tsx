@@ -101,7 +101,7 @@ function EventDot(props: Record<string, unknown>) {
   return (
     <g key={`dot-${index}`}>
       {isToday && (
-        <circle cx={cx} cy={cy} r={8} fill="#1A5C3A" opacity={0.15}>
+        <circle cx={cx} cy={cy} r={8} fill="#22704A" opacity={0.15}>
           <animate
             attributeName="r"
             values="6;12;6"
@@ -120,8 +120,8 @@ function EventDot(props: Record<string, unknown>) {
         cx={cx}
         cy={cy}
         r={3.5}
-        fill={isToday ? "#1A5C3A" : "#FFFFFF"}
-        stroke="#1A5C3A"
+        fill={isToday ? "#22704A" : "#FFFFFF"}
+        stroke="#22704A"
         strokeWidth={2}
       />
     </g>
@@ -207,12 +207,12 @@ export default function YieldTracker({
               >
                 <stop
                   offset="0%"
-                  stopColor="#1A5C3A"
+                  stopColor="#22704A"
                   stopOpacity={topOpacity}
                 />
                 <stop
                   offset="100%"
-                  stopColor="#1A5C3A"
+                  stopColor="#22704A"
                   stopOpacity={bottomOpacity}
                 />
               </linearGradient>
@@ -248,13 +248,13 @@ export default function YieldTracker({
             <Area
               type="monotone"
               dataKey="balance"
-              stroke="#1A5C3A"
+              stroke="#22704A"
               strokeWidth={strokeWidth}
               fill={`url(#yieldGrad-${leverage})`}
               dot={<EventDot />}
               activeDot={{
                 r: 5,
-                stroke: "#1A5C3A",
+                stroke: "#22704A",
                 fill: "#fff",
                 strokeWidth: 2,
               }}
