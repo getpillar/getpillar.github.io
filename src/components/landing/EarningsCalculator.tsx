@@ -72,7 +72,7 @@ export default function EarningsCalculator() {
               key={amt}
               onClick={() => setAmount(amt)}
               className={cn(
-                "px-5 py-2.5 rounded-lg text-sm font-medium transition-all font-mono-financial",
+                "px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg text-sm font-medium transition-all font-mono-financial",
                 amt === amount
                   ? "bg-navy text-white"
                   : "bg-white border border-border text-gray-500 hover:border-gray-300 hover:text-gray-700"
@@ -93,21 +93,21 @@ export default function EarningsCalculator() {
             deposit
           </p>
 
-          <div className="grid grid-cols-3 divide-x divide-border-light">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-0 sm:divide-x sm:divide-border-light">
             <div className="text-center px-4">
-              <p className="text-2xl font-bold text-forest font-mono-financial">
+              <p className="text-xl sm:text-2xl font-bold text-forest font-mono-financial">
                 <RollingNumber value={dailyPillar} decimals={2} active={isInView} />
               </p>
               <p className="text-xs text-gray-400 mt-1">per day</p>
             </div>
             <div className="text-center px-4">
-              <p className="text-2xl font-bold text-forest font-mono-financial">
+              <p className="text-xl sm:text-2xl font-bold text-forest font-mono-financial">
                 <RollingNumber value={monthlyPillar} active={isInView} />
               </p>
               <p className="text-xs text-gray-400 mt-1">per month</p>
             </div>
             <div className="text-center px-4">
-              <p className="text-2xl font-bold text-forest font-mono-financial">
+              <p className="text-xl sm:text-2xl font-bold text-forest font-mono-financial">
                 <RollingNumber value={annualPillar} active={isInView} />
               </p>
               <p className="text-xs text-gray-400 mt-1">per year</p>

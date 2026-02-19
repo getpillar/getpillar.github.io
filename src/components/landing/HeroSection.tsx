@@ -35,7 +35,7 @@ export default function HeroSection() {
           className="inline-flex items-center gap-2 px-4 py-2 bg-forest-light rounded-md mb-8"
         >
           <div className="w-2 h-2 rounded-full bg-forest animate-pulse-dot" />
-          <span className="text-sm font-semibold text-forest font-mono-financial">
+          <span className="text-[11px] font-medium uppercase tracking-wider text-forest font-mono-financial">
             Earning {formatPercent(CURRENT_APY)} APY with Yield Boost
           </span>
         </motion.div>
@@ -45,7 +45,7 @@ export default function HeroSection() {
           <br />
           better than a bank.
         </h1>
-        <p className="mt-6 text-lg text-gray-500 max-w-xl mx-auto leading-relaxed">
+        <p className="mt-6 text-lg text-text-secondary max-w-xl mx-auto leading-relaxed">
           Access the same AAA-rated structured credit yields that power top
           hedge funds — now automated for everyone. No minimums, no lock-ups,
           withdraw anytime.
@@ -103,7 +103,7 @@ export default function HeroSection() {
           or{" "}
           <a
             href="/demo"
-            className="text-navy font-medium underline underline-offset-4 hover:text-forest transition-colors"
+            className="text-navy font-medium hover:text-forest transition-colors"
           >
             try the live demo with $50K
           </a>

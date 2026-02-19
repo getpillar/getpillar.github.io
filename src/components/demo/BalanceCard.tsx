@@ -57,13 +57,13 @@ export default function BalanceCard({
   return (
     <Card className="relative">
       {/* Balance + Lifetime stats */}
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-0">
         <div>
-          <p className="text-sm text-gray-400 mb-1">Total Balance</p>
-          <p className="text-4xl font-bold tracking-tight text-navy font-mono-financial">
+          <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400 mb-1">Total Balance</p>
+          <p className="text-3xl sm:text-4xl font-bold tracking-tight text-navy font-mono-financial">
             {formatCurrency(balance)}
           </p>
-          <div className="flex items-center gap-2 mt-2">
+          <div className="flex flex-wrap items-center gap-2 mt-2">
             {(() => {
               const style = BOOST_BADGE_STYLES[leverage] || BOOST_BADGE_STYLES[2];
               return (
@@ -80,13 +80,13 @@ export default function BalanceCard({
         </div>
         <div className="text-right space-y-1.5 shrink-0">
           <div>
-            <p className="text-xs text-gray-400">Lifetime yield</p>
+            <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">Lifetime yield</p>
             <p className="text-sm font-semibold text-forest font-mono-financial">
               +{formatCurrency(totalYield)}
             </p>
           </div>
           <div>
-            <p className="text-xs text-gray-400">Initial deposit</p>
+            <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">Initial deposit</p>
             <p className="text-sm font-semibold text-navy font-mono-financial">
               {formatCurrency(INITIAL_DEPOSIT, 0)}
             </p>
@@ -95,7 +95,7 @@ export default function BalanceCard({
       </div>
 
       {/* Daily paycheck strip */}
-      <div className="mt-5 pt-4 border-t border-border-light flex items-center justify-between">
+      <div className="mt-5 pt-4 border-t border-border-light flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-forest animate-pulse-dot" />
@@ -105,14 +105,14 @@ export default function BalanceCard({
             +${tickingYield.toFixed(2)}
           </span>
         </div>
-        <span className="text-sm text-gray-400 font-mono-financial">
+        <span className="text-xs sm:text-sm text-gray-400 font-mono-financial">
           {formatCurrency(annualProjection, 0)}/yr at{" "}
           {formatPercent(effectiveAPY)} APY
         </span>
       </div>
 
       {/* Quick actions */}
-      <div className="mt-4 pt-4 border-t border-border-light grid grid-cols-3 gap-2">
+      <div className="mt-4 pt-4 border-t border-border-light grid grid-cols-3 gap-1.5 sm:gap-2">
         {actions.map((action) => {
           const Icon = action.icon;
           const isActive = activeAction === action.label;
@@ -122,7 +122,7 @@ export default function BalanceCard({
               onClick={() => handleAction(action.label)}
               className={cn(
                 "flex items-center justify-center gap-2 py-2.5 rounded-xl",
-                "border transition-all text-sm",
+                "border transition-all text-xs sm:text-sm",
                 isActive
                   ? "border-border bg-gray-50"
                   : "border-border-light hover:border-gray-300 hover:bg-gray-50"

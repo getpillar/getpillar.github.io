@@ -73,19 +73,19 @@ export default function WaitlistCTA({
             <div className="w-full md:w-auto">
               <form
                 onSubmit={handleSubmit}
-                className="flex gap-2 w-full md:w-auto"
+                className="flex flex-col sm:flex-row gap-2 w-full md:w-auto"
               >
                 <input
                   type="email"
                   placeholder="Enter your email"
                   required
                   disabled={submitting}
-                  className="flex-1 md:w-64 px-4 py-3 rounded-lg bg-white/[0.08] border border-white/20 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-white/40 focus:ring-2 focus:ring-white/10 transition-all disabled:opacity-60"
+                  className="w-full sm:flex-1 md:w-64 px-4 py-3 rounded-lg bg-white/[0.08] border border-white/20 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-white/40 focus:ring-2 focus:ring-white/10 transition-all disabled:opacity-60"
                 />
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-6 py-3 bg-white text-navy text-sm font-semibold rounded-lg hover:bg-gray-100 transition-colors whitespace-nowrap disabled:opacity-60"
+                  className="w-full sm:w-auto px-6 py-3 bg-white text-navy text-sm font-semibold rounded-lg hover:bg-gray-100 transition-colors whitespace-nowrap disabled:opacity-60"
                 >
                   {submitting ? "Joining..." : "Join Waitlist"}
                 </button>

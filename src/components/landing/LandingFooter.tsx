@@ -17,7 +17,7 @@ export default function LandingFooter() {
         </p>
         <Link
           href="/demo"
-          className="mt-8 inline-flex items-center gap-2 px-8 py-3.5 bg-navy text-white text-sm font-semibold rounded-lg hover:bg-navy-light transition-colors"
+          className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-navy text-white text-sm font-semibold uppercase tracking-wider rounded-lg hover:bg-navy-light transition-colors"
         >
           Try the Live Demo
           <ArrowRight className="w-4 h-4" />

@@ -23,14 +23,14 @@ export default function LandingNav() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <PillarLogo size={28} />
-          <span className="text-lg font-bold tracking-tight text-navy">
+          <span className="text-base font-semibold tracking-wide text-navy uppercase">
             Pillar
           </span>
         </div>
         <div className="flex items-center gap-4">
           <Link
             href="/demo"
-            className="text-sm text-gray-500 hover:text-navy transition-colors"
+            className="hidden sm:block text-sm text-gray-500 hover:text-navy transition-colors"
           >
             Live Demo
           </Link>

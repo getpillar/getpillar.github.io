@@ -163,13 +163,13 @@ export default function YieldTracker({
 
   return (
     <Card className="flex flex-col">
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 mb-3">
         <div>
           <div className="flex items-center gap-2">
             <TrendingUp className="w-4 h-4 text-gray-400" />
             <CardTitle>Yield Performance</CardTitle>
           </div>
-          <p className="text-sm text-gray-400 mt-0.5">
+          <p className="text-xs sm:text-sm text-gray-400 mt-0.5">
             <span className="font-semibold text-forest font-mono-financial">
               +{formatCurrency(periodYield)}
             </span>{" "}
@@ -182,7 +182,7 @@ export default function YieldTracker({
               key={r}
               onClick={() => setRange(r)}
               className={cn(
-                "px-2.5 py-1 rounded-lg text-xs font-medium transition-colors",
+                "px-2 sm:px-2.5 py-1 rounded-lg text-xs font-medium transition-colors",
                 r === range
                   ? "bg-navy text-white"
                   : "text-gray-500 hover:text-navy hover:bg-gray-100"
