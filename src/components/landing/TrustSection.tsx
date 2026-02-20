@@ -30,7 +30,7 @@ export default function TrustSection() {
   return (
     <section className="py-20">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-serif text-navy">Built on trust</h2>
+        <h2 className="text-3xl font-bold text-navy">Built on trust</h2>
         <p className="mt-3 text-gray-500">
           Transparency is not a feature — it{"'"}s the foundation.
         </p>

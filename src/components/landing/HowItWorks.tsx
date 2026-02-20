@@ -38,7 +38,7 @@ export default function HowItWorks() {
   return (
     <section className="py-20">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-serif text-navy">
+        <h2 className="text-3xl font-bold text-navy">
           Simple by design
         </h2>
         <p className="mt-3 text-gray-500">

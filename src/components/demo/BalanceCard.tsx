@@ -56,41 +56,40 @@ export default function BalanceCard({
 
   return (
     <Card className="relative">
-      {/* Balance + Lifetime stats */}
-      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-0">
-        <div>
-          <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400 mb-1">Total Balance</p>
-          <p className="text-3xl sm:text-4xl font-bold tracking-tight text-navy font-mono-financial">
-            {formatCurrency(balance)}
-          </p>
-          <div className="flex flex-wrap items-center gap-2 mt-2">
-            {(() => {
-              const style = BOOST_BADGE_STYLES[leverage] || BOOST_BADGE_STYLES[2];
-              return (
-                <span className={cn("inline-flex items-center gap-1 rounded-md px-2.5 py-0.5 text-[10px] font-medium", style.bg, style.text)}>
-                  <Gauge className="w-3 h-3" />
-                  Yield Boost {leverage}x &middot; {riskLabel}
-                </span>
-              );
-            })()}
-            <Badge variant="outline" className="text-[10px]">
-              Not FDIC Insured &middot; AAA-Rated ETFs
-            </Badge>
-          </div>
+      {/* Balance + stats */}
+      <div>
+        <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400 mb-1">Total Balance</p>
+        <p className="text-3xl sm:text-4xl font-bold tracking-tight text-navy font-mono-financial">
+          {formatCurrency(balance)}
+        </p>
+        <div className="flex flex-wrap items-center gap-2 mt-2">
+          {(() => {
+            const style = BOOST_BADGE_STYLES[leverage] || BOOST_BADGE_STYLES[2];
+            return (
+              <span className={cn("inline-flex items-center gap-1 rounded-md px-2.5 py-0.5 text-[10px] font-medium", style.bg, style.text)}>
+                <Gauge className="w-3 h-3" />
+                Yield Boost {leverage}x &middot; {riskLabel}
+              </span>
+            );
+          })()}
+          <Badge variant="outline" className="text-[10px]">
+            Not FDIC Insured &middot; AAA-Rated ETFs
+          </Badge>
         </div>
-        <div className="text-right space-y-1.5 shrink-0">
-          <div>
-            <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">Lifetime yield</p>
-            <p className="text-sm font-semibold text-forest font-mono-financial">
+        <div className="flex items-center gap-3 mt-3 text-xs text-gray-400">
+          <span>
+            Lifetime{" "}
+            <span className="font-semibold text-forest font-mono-financial">
               +{formatCurrency(totalYield)}
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">Initial deposit</p>
-            <p className="text-sm font-semibold text-navy font-mono-financial">
+            </span>
+          </span>
+          <span className="text-gray-300">&middot;</span>
+          <span>
+            Deposited{" "}
+            <span className="font-semibold text-navy font-mono-financial">
               {formatCurrency(INITIAL_DEPOSIT, 0)}
-            </p>
-          </div>
+            </span>
+          </span>
         </div>
       </div>
 

@@ -83,42 +83,27 @@ export default function AllocationBreakdown({
                 animationDuration={600}
                 onClick={handlePieClick}
               >
-                {pieData.map((_, idx) => (
-                  <Cell
-                    key={idx}
-                    fill={COLORS[idx]}
-                    opacity={
-                      activeIndex >= 0 && idx !== activeIndex ? 0.25 : 1
-                    }
-                    style={{ cursor: "pointer", outline: "none" }}
-                  />
-                ))}
-              </Pie>
-
-              {activeIndex >= 0 && (
-                <Pie
-                  data={pieData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={48}
-                  outerRadius={80}
-                  paddingAngle={0}
-                  dataKey="value"
-                  stroke="transparent"
-                  strokeWidth={3}
-                  isAnimationActive={false}
-                  onClick={handlePieClick}
-                >
-                  {pieData.map((_, idx) => (
+                {pieData.map((_, idx) => {
+                  const isSelected = activeIndex >= 0 && idx === activeIndex;
+                  const isFaded = activeIndex >= 0 && idx !== activeIndex;
+                  return (
                     <Cell
                       key={idx}
-                      fill={idx === activeIndex ? COLORS[idx] : "transparent"}
-                      stroke={idx === activeIndex ? pieStroke : "transparent"}
-                      style={{ cursor: "pointer", outline: "none" }}
+                      fill={COLORS[idx]}
+                      opacity={isFaded ? 0.25 : 1}
+                      strokeWidth={isSelected ? 4 : 3}
+                      style={{
+                        cursor: "pointer",
+                        outline: "none",
+                        transition: "opacity 0.3s ease, stroke-width 0.3s ease",
+                        filter: isSelected
+                          ? "drop-shadow(0 1px 3px rgba(0,0,0,0.15))"
+                          : "none",
+                      }}
                     />
-                  ))}
-                </Pie>
-              )}
+                  );
+                })}
+              </Pie>
             </PieChart>
           </ResponsiveContainer>
           {/* Center label */}

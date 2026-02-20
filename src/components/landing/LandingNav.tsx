@@ -30,7 +30,7 @@ export default function LandingNav() {
         <div className="flex items-center gap-4">
           <Link
             href="/demo"
-            className="hidden sm:block text-sm text-gray-500 hover:text-navy transition-colors"
+            className="text-sm text-gray-500 hover:text-navy transition-colors"
           >
             Live Demo
           </Link>

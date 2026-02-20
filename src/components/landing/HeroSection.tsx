@@ -40,7 +40,7 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        <h1 className="text-5xl md:text-6xl font-serif tracking-tight text-navy leading-[1.1]">
+        <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-navy leading-[1.1]">
           Your cash deserves
           <br />
           better than a bank.

@@ -158,8 +158,8 @@ export default function YieldTracker({
   const [topOpacity, bottomOpacity] = getGradientOpacity(leverage);
   const strokeWidth = 1.5 + ((leverage - 1) / 2) * 1;
 
-  const axisTickColor = "#8B919A";
-  const refLineColor = "#E8E5E0";
+  const axisTickColor = "#9CA3AF";
+  const refLineColor = "#E2E4E8";
 
   return (
     <Card className="flex flex-col">

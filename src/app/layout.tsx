@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Inter, Geist_Mono } from "next/font/google";
 import { WaitlistProvider } from "@/contexts/WaitlistContext";
 import "./globals.css";
 
@@ -11,12 +11,6 @@ const inter = Inter({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -36,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased bg-background text-foreground`}
+        className={`${inter.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
         <WaitlistProvider>{children}</WaitlistProvider>
       </body>

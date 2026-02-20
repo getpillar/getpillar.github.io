@@ -6,7 +6,7 @@ import { CURRENT_APY } from "@/data/mockData";
 import { formatCurrency, formatPercent } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 
-const AMOUNTS = [10_000, 25_000, 50_000, 100_000, 250_000];
+const AMOUNTS = [10_000, 25_000, 50_000, 100_000];
 const NATIONAL_AVG = 0.39;
 
 function RollingNumber({
@@ -52,7 +52,7 @@ export default function EarningsCalculator() {
   return (
     <section className="py-20">
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-serif text-navy">
+        <h2 className="text-3xl font-bold text-navy">
           See what your cash could earn
         </h2>
         <p className="mt-3 text-gray-500">

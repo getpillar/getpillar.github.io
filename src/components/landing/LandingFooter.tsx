@@ -7,7 +7,7 @@ export default function LandingFooter() {
   return (
     <section className="py-20 text-center">
       <div className="max-w-lg mx-auto">
-        <h2 className="text-3xl font-serif text-navy">
+        <h2 className="text-3xl font-bold text-navy">
           See it for yourself
         </h2>
         <p className="mt-3 text-gray-500">

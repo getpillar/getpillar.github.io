@@ -109,7 +109,7 @@ export default function YieldComparison() {
   return (
     <section className="py-20">
       <div className="text-center mb-4">
-        <h2 className="text-3xl font-serif text-navy">
+        <h2 className="text-3xl font-bold text-navy">
           Stop leaving money on the table
         </h2>
         <p className="mt-3 text-gray-500 max-w-lg mx-auto">
